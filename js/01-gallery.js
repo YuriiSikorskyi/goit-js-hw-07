@@ -1,9 +1,10 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
-// console.log(galleryItems);
+
+
 
 const galleryEl = document.querySelector('.gallery');
+
 const galleryCards = createGaleryCards(galleryItems);
 
 galleryEl.addEventListener('click', onGalleryCardclick);
@@ -30,14 +31,24 @@ function createGaleryCards(galleryItems) {
 }
 
 function onGalleryCardclick(e) {
-    console.log(e.target);
+    if (!e.target.classList.contains('gallery__image')){
+        return;
+    }
+    e.preventDefault()
+
+    basicLightbox.create.src = "e.target.dataset.source";
+
+    const linkBigImage = e.target.dataset.source;
+
+
+    
+document.querySelector('.gallery').onclick = () => {
+
+	basicLightbox.create(`
+		<img width="1400" height="900" src="${linkBigImage} ">
+	`).show()
+
+}
 }
 
 
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <img src="assets/images/image.png" width="800" height="600">
-// `)
-
-// instance.show()
