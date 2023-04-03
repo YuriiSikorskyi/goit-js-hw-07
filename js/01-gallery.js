@@ -31,15 +31,16 @@ function createGaleryCards(galleryItems) {
 }
 
 function onGalleryCardclick(e) {
-    if (!e.target.classList.contains('gallery__image')){
+    // if (!e.target.classList.contains('gallery__image')){
+        if (e.target.nodeName !== 'IMG'){
         return;
     }
+
     e.preventDefault()
 
     basicLightbox.create.src = "e.target.dataset.source";
 
     const linkBigImage = e.target.dataset.source;
-
 
     
 document.querySelector('.gallery').onclick = () => {
